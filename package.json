@@ -1,0 +1,35 @@
+{
+  "name": "craiyon",
+  "version": "1.0.0",
+  "description": "A discord bot that generates images with any prompt!",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "ts-node src/Bot.ts"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/moelrobi/craiyon-bot.git"
+  },
+  "keywords": [
+    "bot",
+    "discord",
+    "ai",
+    "web"
+  ],
+  "author": "Robin Möller <robin@moeller.mx>",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/moelrobi/craiyon-bot/issues"
+  },
+  "homepage": "https://github.com/moelrobi/craiyon-bot#readme",
+  "dependencies": {
+    "axios": "^0.27.2",
+    "discord.js": "^13.8.1"
+  },
+  "devDependencies": {
+    "@types/node": "^18.0.0",
+    "ts-node": "^10.8.1",
+    "typescript": "^4.7.4"
+  }
+}
