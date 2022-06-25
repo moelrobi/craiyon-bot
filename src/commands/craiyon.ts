@@ -27,7 +27,7 @@ export const Craiyon: Command = {
 
                 const embed = new MessageEmbed()
                     .setTitle("Images created!")
-                    .setDescription("Craiyon took " + resultTime + " ms to process the request.")
+                    .setDescription("Craiyon took " + resultTime + " ms to process the request: " + input)
                     .setAuthor({
                         name: interaction.user.username,
                         iconURL: interaction.user.displayAvatarURL()
@@ -44,7 +44,7 @@ export const Craiyon: Command = {
                     imageArray.push(new MessageAttachment(buffer));
                 })
 
-                interaction.followUp({embeds: [embed], files: imageArray});
+                interaction.followUp({content: "Hey <@" + interaction.user.id + ">, your request " + input + " finished!",embeds: [embed], files: imageArray});
             })
             .catch(error => {
                 interaction.followUp("The Generation failed.. I am sorry.");
