@@ -5,7 +5,7 @@ import config from "./config.json";
 
 console.log("Bot booting up!");
 
-const client = new Client({intents: []});
+const client = new Client({intents: [], allowedMentions: {parse: ['users']}});
 
 ready(client);
 interactionCreate(client);
