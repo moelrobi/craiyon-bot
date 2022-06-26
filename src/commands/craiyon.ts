@@ -1,4 +1,4 @@
-import { Client, CommandInteraction, MessageEmbed, MessageAttachment, Message } from "discord.js";
+import { Client, CommandInteraction, MessageEmbed, MessageAttachment } from "discord.js";
 import { Command } from "../Command";
 import axios from "axios";
 import config from "../config.json";
@@ -48,7 +48,21 @@ export const Craiyon: Command = {
                 interaction.followUp({content: "Hey <@!" + interaction.user.id + ">! Your Request " + input + " is finished!", ephemeral: true});
             })
             .catch(error => {
-                interaction.followUp("The Generation failed.. I am sorry.");
+                const embed = new MessageEmbed()
+                    .setTitle("Generation failed!")
+                    .setDescription("This could be due a timeout from the backend or another error in the Code.")
+                    .setAuthor({
+                        name: interaction.user.username,
+                        iconURL: interaction.user.displayAvatarURL()
+                    })
+                    .setColor("RED")
+                    .setFooter({
+                        text: "Generic Error Message | Made with love by Spades#4200",
+                        iconURL: client.user?.displayAvatarURL()
+                    })
+                    .setURL("https://craiyon.de")
+
+                interaction.followUp({embeds: [embed]});
                 console.error("Generation request with prompt %s for %s, failed with StatusCode %d", input, interaction.user.tag, error.response.status);
                 console.error(error);
             })
